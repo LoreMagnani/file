@@ -42,33 +42,33 @@ weights = {
         "w_quad_cWtil": f"(-w_sm + 0.5*(weights[2] + weights[1]))",
         "w_sm_lin_quad_cWtil": f"(weights[2])",
 
-        "w_lin_cHGtil": f"(0.5*(weights[4] - weights[3]))",
-        "w_quad_cHGtil": f"(-w_sm + 0.5*(weights[4] + weights[3]))",
-        "w_sm_lin_quad_cHGtil": f"(weights[4])",
+        #"w_lin_cHGtil": f"(0.5*(weights[4] - weights[3]))",
+        #"w_quad_cHGtil": f"(-w_sm + 0.5*(weights[4] + weights[3]))",
+        #"w_sm_lin_quad_cHGtil": f"(weights[4])",
 
-        "w_lin_cHWtil": f"(0.5*(weights[6] - weights[5]))",
-        "w_quad_cHWtil": f"(-w_sm + 0.5*(weights[6] + weights[5]))",
-        "w_sm_lin_quad_cHWtil": f"(weights[6])",
+        #"w_lin_cHWtil": f"(0.5*(weights[6] - weights[5]))",
+        #"w_quad_cHWtil": f"(-w_sm + 0.5*(weights[6] + weights[5]))",
+        #"w_sm_lin_quad_cHWtil": f"(weights[6])",
 
-        "w_lin_cHBtil": f"((0.5*(weights[8] - weights[7])))",
-        "w_quad_cHBtil": f"((-w_sm + 0.5*(weights[8] + weights[7])))",
-        "w_sm_lin_quad_cHBtil": f"((weights[8]))",
-
+        #"w_lin_cHBtil": f"((0.5*(weights[8] - weights[7])))",
+        #"w_quad_cHBtil": f"((-w_sm + 0.5*(weights[8] + weights[7])))",
+        #"w_sm_lin_quad_cHBtil": f"((weights[8]))",
+        
         "w_lin_cHWBtil": f"((0.5*(weights[10] - weights[9])))",
         "w_quad_cHWBtil": f"((-w_sm + 0.5*(weights[10] + weights[9])))",
-        "w_sm_lin_quad_cHWBtil": f"((weights[10]))",
+        "w_sm_lin_quad_cHWBtil": f"((weights[10]))"
 
-        "w_lin_cbWIm": f"((0.5*(weights[12] - weights[11])))",
-        "w_quad_cbWIm": f"((-w_sm + 0.5*(weights[12] + weights[11])))",
-        "w_sm_lin_quad_cbWIm": f"((weights[12]))",
+        #"w_lin_cbWIm": f"((0.5*(weights[12] - weights[11])))",
+        #"w_quad_cbWIm": f"((-w_sm + 0.5*(weights[12] + weights[11])))",
+        #"w_sm_lin_quad_cbWIm": f"((weights[12]))",
 
-        "w_lin_cbBIm": f"((0.5*(weights[14] - weights[13])))",
-        "w_quad_cbBIm": f"((-w_sm + 0.5*(weights[14] + weights[13])))",
-        "w_sm_lin_quad_cbBIm": f"((weights[14]))",
+        #"w_lin_cbBIm": f"((0.5*(weights[14] - weights[13])))",
+        #"w_quad_cbBIm": f"((-w_sm + 0.5*(weights[14] + weights[13])))",
+        #"w_sm_lin_quad_cbBIm": f"((weights[14]))",
 
-        "w_lin_clebQIm": f"((0.5*(weights[16] - weights[15])))",
-        "w_quad_clebQIm": f"((-w_sm + 0.5*(weights[16] + weights[15])))",
-        "w_sm_lin_quad_clebQIm": f"((weights[16]))"
+        #"w_lin_clebQIm": f"((0.5*(weights[16] - weights[15])))",
+        #"w_quad_clebQIm": f"((-w_sm + 0.5*(weights[16] + weights[15])))",
+        #"w_sm_lin_quad_clebQIm": f"((weights[16]))"
         }    
 
 #questo riempe il dataframe con array di pesi (non so a che servano)
@@ -98,8 +98,8 @@ for index in range(len(fis)):
 
 #crea istogrammi in modo automatizzato
 vars = ["mll", "deltaPhill", "deltaEtall", "ptl1", "ptl2", "mJJ", "deltaPhiJJ", "deltaEtaJJ", "ptJ1", "ptJ2"]
-xmin = [70 , -np.pi , -4 , 0 , 0 , 0  , -np.pi , -9 , 0 , 0]
-xmax = [110 , np.pi , 4 , 900 , 400 , 5000 , np.pi , 9 , 1100 , 1000]
+xmin = [76 , -np.pi , -5 , 0 , 0 , 0  , -np.pi , -10 , 0 , 0]
+xmax = [105 , np.pi , 5 , 500 , 300 , 5000 , np.pi , 10 , 1800 , 800]
 lum = 100
 for w in weights.keys():
     #counts = df.Count().GetValue()
@@ -131,11 +131,13 @@ for j in range(len(vars)):
 
     canvas = ROOT.TCanvas("canvas", "canvas", 800, 600)
 
+    """
     for i in range(25):
         canvas.Clear()
         histos[-i].Draw()
         canvas.SaveAs('histo_' + vars[j] + '_' + '_'.join(histos[-i].GetName().split('_')[1:]) + ".png")
-
+    """
+    
     f.Close()
        
     print(vars[j] + ' fatto')

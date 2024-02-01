@@ -104,31 +104,30 @@ def main():
     & ak.all(abs(arr.particles[:, [-2, -1]].vector.eta) < 4.7, axis=1) 
 
 
-        rootfile = uproot.recreate('output_test_' + str(index) + '.root')
+        rootfile = uproot.recreate('output_' + str(index) + '.root')
 
         rootfile['tree'] = {
-            'mll': ak.fill_none(mll, 0),
-            'deltaPhill': ak.fill_none(deltaPhill, 0),
-            'deltaEtall': ak.fill_none(deltaEtall, 0),
-            'ptl1': ak.fill_none(ptl1, 0),
-            'phil1': ak.fill_none(phil1, 0),
-            'etal1': ak.fill_none(etal1, 0),
-            'ptl2': ak.fill_none(ptl1, 0),
-            'phil2': ak.fill_none(ptl1, 0),
-            'etal1': ak.fill_none(ptl1, 0),
+            'mll': ak.fill_none(mll[cuts], 0),
+            'deltaPhill': ak.fill_none(deltaPhill[cuts], 0),
+            'deltaEtall': ak.fill_none(deltaEtall[cuts], 0),
+            'ptl1': ak.fill_none(ptl1[cuts], 0),
+            'phil1': ak.fill_none(phil1[cuts], 0),
+            'etal1': ak.fill_none(etal1[cuts], 0),
+            'ptl2': ak.fill_none(ptl2[cuts], 0),
+            'phil2': ak.fill_none(phil2[cuts], 0),
+            'etal1': ak.fill_none(etal2[cuts], 0),
 
-            'mJJ': ak.fill_none(mJJ, 0),
-            'deltaPhiJJ': ak.fill_none(deltaPhill, 0),
-            'deltaEtaJJ': ak.fill_none(deltaEtall, 0),
-            'ptJ1': ak.fill_none(ptl1, 0),
-            'phiJ1': ak.fill_none(phil1, 0),
-            'etaJ2': ak.fill_none(etal1, 0),
-            'ptJ2': ak.fill_none(ptl1, 0),
-            'phiJ2': ak.fill_none(ptl1, 0),
-            'etaJ1': ak.fill_none(ptl1, 0),
-
-            'weights': weights,
-            'nom_weights': ak.fill_none(nom_weights, 0),
+            'mJJ': ak.fill_none(mJJ[cuts], 0),
+            'deltaPhiJJ': ak.fill_none(deltaPhiJJ[cuts], 0),
+            'deltaEtaJJ': ak.fill_none(deltaEtaJJ[cuts], 0),
+            'ptJ1': ak.fill_none(ptJ1[cuts], 0),
+            'phiJ1': ak.fill_none(phiJ1[cuts], 0),
+            'etaJ2': ak.fill_none(etaJ1[cuts], 0),
+            'ptJ2': ak.fill_none(ptJ2[cuts], 0),
+            'phiJ2': ak.fill_none(phiJ2[cuts], 0),
+            'etaJ1': ak.fill_none(etaJ2[cuts], 0), 
+            'weights': weights[cuts],
+            'nom_weights': ak.fill_none(nom_weights[cuts], 0),
         }
 
         rootfile.close()

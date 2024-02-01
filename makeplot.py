@@ -34,7 +34,7 @@ for nome_file in os.listdir(output_path):
         print("File: " , nome_file)
 
         #definisco gli operatori e ciclo sugli operatori
-        opes = ["cWtil" , "cHGtil" , "cHWtil" , "cHBtil" , "cHWBtil" , "cbWIm" , "cbBIm" , "clebQIm"]
+        opes = ["cWtil" , "cHWBtil"]
         for ope in opes:
 
             def make_error_band(bins, err):
